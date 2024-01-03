@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
+idx = 0
 for c in range(ord('z'), ord('a') - 1, -1):
-    print("{:c}".format(c), end="")
-    c = c - 1
-    if c >= ord('A'):
-        print("{:c}".format(c - 32), end="")
+    print("{:c}".format(c - idx), end="")
+    idx = 32 if idx == 0 else 0
