@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef LISTS_H
+#define LISTS_H
 
 #include <stdio.h>
 
@@ -7,4 +7,4 @@ int palindrome(char *s, int l);
 int _strlen(char *s);
 int is_palindrome(char *s);
 
-#endif /*MAIN_H*/
+#endif /*LISTS_H*/

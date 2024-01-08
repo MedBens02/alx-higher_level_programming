@@ -1,4 +1,4 @@
-#include "main.h"
+#include "lists.h"
 
 /**
  * is_palindrome - Checks if str is a palindrome.
