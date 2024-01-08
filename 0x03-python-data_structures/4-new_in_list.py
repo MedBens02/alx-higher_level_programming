@@ -2,10 +2,11 @@
 
 def new_in_list(my_list, idx, element):
 
-    newlist = my_list
+    if my_list:
+        newlist = my_list
 
-    if idx < 0 or idx > len(newlist) - 1:
-        return newlist
-    else:
-        newlist[idx] = element
-        return newlist
+        if idx < 0 or idx > len(newlist) - 1:
+            return newlist
+        else:
+            newlist[idx] = element
+            return newlist
