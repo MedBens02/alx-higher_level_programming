@@ -8,7 +8,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *tortoise = *head, *hare = *head;
-	listint_t *half2, *tmp;
+	listint_t *half2;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
@@ -16,7 +16,6 @@ int is_palindrome(listint_t **head)
 	while (hare != NULL && hare->next != NULL)
 	{
 		hare = hare->next->next;
-		tmp = tortoise;
 		tortoise = tortoise->next;
 	}
 
