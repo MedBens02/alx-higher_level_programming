@@ -1,46 +1,59 @@
 #include "lists.h"
 
 /**
- * is_palindrome - Checks if str is a palindrome.
- * @s: str.
- * @l: length of the string.
- * Return: 1 if str is a palindrome, 0 otherwise.
+ * is_palindrome - checks if a linked list is a palindrome
+ * @head: double pointer to the linked list
+ * Return: 1 if it is, 0 if not
  */
-int is_palindrome(char *s)
+int is_palindrome(listint_t **head)
 {
-	int l = _strlen(s);
+	listint_t *tortoise = *head, *hare = *head;
+	listint_t *half2, *tmp;
 
-	return (palindrome(s, l));
-}
-
-/**
- * _strlen - returns the length of a str.
- *
- * @s: str.
- *
- * Return: length of str.
- */
-int _strlen(char *s)
-{
-	if (*s != '\0')
-		return (_strlen(s + 1) + 1);
-
-	return (0);
-}
-
-/**
- * palindrome - check palindrome.
- * @s: str to check.
- * @l: length of the str.
- * Return: 1 if str is a palindrome, 0 otherwise.
- */
-int palindrome(char *s, int l)
-{
-	if (l <= 1)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
-	else if (*s == s[l - 1])
-		return (palindrome(s + 1, l - 2));
+	while (hare != NULL && hare->next != NULL)
+	{
+		hare = hare->next->next;
+		tmp = tortoise;
+		tortoise = tortoise->next;
+	}
 
-	return (0);
+	if (hare != NULL)
+		tortoise = tortoise->next;
+
+	half2 = reverse_listint(&tortoise);
+
+	while (*head != NULL && half2 != NULL)
+	{
+		if ((*head)->n != half2->n)
+			return 0;
+		
+		*head = (*head)->next;
+		half2 = half2->next;
+	}
+
+	return 1;
+}
+
+/**
+ * reverse_listint - Reverses a listint_t linked list.
+ * @head: Pointer to the head of the list.
+ * Return: A pointer to the first node of the reversed list.
+ */
+listint_t *reverse_listint(listint_t **head)
+{
+	listint_t *next = NULL, *ptr = NULL;
+
+	while (*head != NULL)
+	{
+		next = (*head)->next;
+		(*head)->next = ptr;
+		ptr = *head;
+		*head = next;
+	}
+	*head = ptr;
+
+	return (*head);
 }
