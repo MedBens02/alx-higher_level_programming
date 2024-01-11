@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <Python.h>
+#include <stdlib.h>
 
 /**
  * print_python_bytes - Prints information about a Python bytes object
