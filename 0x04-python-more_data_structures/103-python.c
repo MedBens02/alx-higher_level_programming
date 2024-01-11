@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <Python.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -18,20 +18,20 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 	
-	size = ((PyVarObject *)p)->ob_size
-	byte_str = ((PyBytesObject *)p)->ob_sval;
+	size = ((PyVarObject *)p)->ob_size;
+	byte_str = ((PyBytesObject *)p);
 
-	printf("  size: %ld\n", size);
-	printf("  trying string: %s\n", byte_str);
+	printf("  size: %d\n", size);
+	printf("  trying string: %s\n", byte_str->ob_sval);
 
-	(size >= 10) ? size = 10 : size += 1;
+	size = (size >= 10) ? 10 : size + 1;
 
-	printf("  first %ld bytes: ", size);
+	printf("  first %d bytes: ", size);
 
 	for (i = 0; i < size; i++)
 	{ 
-		printf("%02hhx", byte_str[i]);
-		if (i == (size - 1)
+		printf("%02hhx", byte_str->ob_sval[i]);
+		if (i == (size - 1))
 			printf("\n");
 		else
 			printf(" ");
@@ -53,12 +53,12 @@ void print_python_list(PyObject *p)
 
 	printf("[*] Python list info\n");
 	printf("[*] Size of the Python List = %d\n", list_size);
-	printf("[*] Allocated = %d\n", list->allocated);
+	printf("[*] Allocated = %ld\n", list->allocated);
 
 	for (i = 0; i < list_size; i++)
 	{
 		elt_type = list->ob_item[i]->ob_type->tp_name;
-		printf("Element %ld: %s\n", i, elt_type);
+		printf("Element %d: %s\n", i, elt_type);
 		if (strcmp(elt_type, "bytes") == 0)
 			print_python_bytes(list->ob_item[i]);
 	}
