@@ -13,11 +13,25 @@ class Square:
             size: The size of a square.
         """
         self.__size = size
+        self.position = position
 
     @property
     def size(self):
         """Access the size of square."""
         return self.__size
+
+    @size.setter
+    def size(self, value):
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = value
+
+    @property
+    def position(self):
+        """Access position of square."""
+        return self.__position
 
     @position.setter
     def position(self, value):
