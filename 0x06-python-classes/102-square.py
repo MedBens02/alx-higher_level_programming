@@ -6,7 +6,7 @@
 class Square:
     """Represent a square."""
 
-    def __init__(self, size):
+    def __init__(self, size=0):
         """New Square.
 
         Args:
@@ -17,7 +17,7 @@ class Square:
     @property
     def size(self):
         """Access the size of square."""
-        return (self.__size)
+        return self.__size
 
     @size.setter
     def size(self, value):
@@ -29,9 +29,9 @@ class Square:
 
     def area(self):
         """Return area of square"""
-        return (self.__size ** 2)
+        return self.__size ** 2
 
-     def __eq__(self, other):
+    def __eq__(self, other):
         """ == compare."""
         return self.area() == other.area()
 
