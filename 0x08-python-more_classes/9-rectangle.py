@@ -100,4 +100,4 @@ class Rectangle:
         Args:
             size: width and height
         """
-        return cls(size,size)
+        return cls(size, size)
