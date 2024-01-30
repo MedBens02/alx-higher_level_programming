@@ -1,0 +1,79 @@
+======================
+Usage 0-add_integer.py
+======================
+
+Defines an integer add fct ``add_integer(a, b=98)``
+
+Usage
+=====
+
+``add_integer`` returns addition of 2 ints.
+
+1 int:
+	>>> add_integer(2)
+	100
+
+arg is 0:
+	>>> add_integer(0)
+	98
+
+2 ints:
+	>>> add_integer(45, 7)
+	52
+
+2 floats:
+	>>> add_integer(45.0, 7.0)
+	52
+
+a float result:
+	>>> add_integer(3.8, -0.3)
+	3
+
+float + int:
+	>>> add_integer(7.2, -11)
+	-4
+
+Infinity:
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+	OverflowError: cannot convert float infinity to integer
+
+::
+	>>> add_integer(2, float('inf'))
+	Traceback (most recent call last):
+	OverflowError: cannot convert float infinity to integer
+
+Invalid:
+	>>> add_integer("alx", 7)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+::
+        >>> add_integer(7, "alx")
+        Traceback (most recent call last):
+        TypeError: b must be an integer
+
+::
+	>>> add_integer(None)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+::
+        >>> add_integer(2, None)
+        Traceback (most recent call last):
+        TypeError: b must be an integer
+
+::
+    >>> add_integer("hello", "alx")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+NaN numbers:
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+::
+    >>> add_integer(15, float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
