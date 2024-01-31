@@ -1,0 +1,64 @@
+==========================
+Usage text_indentation.py
+==========================
+
+Defines a method ``text_indentation(text)`` that adds indentation to each line.
+
+Usage
+=====
+
+``text_indentation`` adds indentation to each line of the given text.
+
+import:
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+No delim case:
+	>>> text_indentation("This is a test")
+	This is a test
+
+Str with spaces:
+	>>> text_indentation("This is a test.    ")
+	This is a test.
+	<BLANKLINE>
+
+Spaces before:
+	>>> text_indentation("    This is a test.")
+	This is a test.
+	<BLANKLINE>
+
+Spaces both sides:
+	>>> text_indentation("    This is a test.    ")
+	This is a test.
+	<BLANKLINE>
+
+Only spaces:
+	>>> text_indentation("      ")
+
+1 delim and spaces and new line:
+	>>> text_indentation("   A test:\n This  ")
+	A test:
+	<BLANKLINE>
+	<BLANKLINE>
+	 This
+
+all delims:
+	>>> text_indentation("This: is? a test.OK")
+	This:
+	<BLANKLINE>
+	is?
+	<BLANKLINE>
+	a test.
+	<BLANKLINE>
+	OK
+
+None:
+	>>> text_indentation(None)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+Number:
+	>>> text_indentation(10)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
