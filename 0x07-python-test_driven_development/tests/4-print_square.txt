@@ -1,0 +1,79 @@
+==========================
+Usage 4-print_square.py
+==========================
+
+Defines a function ``print_square(size)`` that prints a square using #.
+
+Usage
+=====
+
+``print_square`` prints a square with the given size.
+
+import:
+    >>> print_square = __import__('4-print_square').print_square
+
+Normal case:
+	>>> print_square(5)
+	#####
+	#####
+	#####
+	#####
+	#####
+
+Bigger square:
+	>>> print_square(10)
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+
+Zero size:
+	>>> print_square(0)
+
+Negative size:
+	>>> print_square(-5)
+	Traceback (most recent call last):
+	...
+	ValueError: size must be >= 0
+
+Float size:
+	>>> print_square(10.0)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+String size:
+	>>> print_square("foo")
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+None size:
+	>>> print_square(None)
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+NaN size:
+	>>> print_square(float('nan'))
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+Infinity size:
+	>>> print_square(float('inf'))
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+
+Missing one argument:
+	>>> print_square()
+	Traceback (most recent call last):
+	...
+	TypeError: print_square() missing 1 required positional argument: 'size'
