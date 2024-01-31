@@ -9,6 +9,9 @@ Usage
 
 ``add_integer`` returns addition of 2 ints.
 
+import:
+	>>> add_integer = __import__('0-add_integer').add_integer
+
 1 int:
 	>>> add_integer(2)
 	100
