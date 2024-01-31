@@ -1,6 +1,6 @@
-======================
+==========================
 Usage `2-matrix_divided.py
-======================
+==========================
 
 Defines a matrix division fct ```2-matrix_divided``
 

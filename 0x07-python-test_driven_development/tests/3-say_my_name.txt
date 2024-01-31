@@ -1,0 +1,62 @@
+======================
+Usage 3-say_my_name.py
+======================
+
+Defines a name print fct ``say_my_name(first_name, last_name="")``
+
+Usage
+=====
+
+``say_my_name`` prints a full name.
+
+import:
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Normal case:
+	>>> say_my_name("Med", "Bens")
+	My name is Med Bens
+
+Only one name:
+	>>> say_my_name("Med")
+	My name is Med 
+
+
+Empty names:
+	>>> say_my_name("", "")
+	My name is  
+
+Empty last:
+	>>> say_my_name("Med", "")
+	My name is Med 
+
+Empty first:
+	>>> say_my_name("", "Bens")
+	My name is  Bens
+
+Spaces as names:
+	>>> say_my_name("  ", "  ")
+	My name is      
+
+Not str as first name:
+	>>> say_my_name(10, "Bens")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+Not str as last name:
+	>>> say_my_name("Med", 10)
+        Traceback (most recent call last):
+        ...
+	TypeError: last_name must be a string
+
+Both not str:
+	>>> say_my_name(20, 10)
+	Traceback (most recent call last):
+        ...
+        TypeError: first_name must be a string
+
+No args:
+	>>> say_my_name()
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
