@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Defines an inherited class"""
+'''Defines MyList class.'''
 
 
-class Mylist(list):
-    """custom class"""
+class MyList(list):
+    '''Custom class.'''
     def print_sorted(self):
-        """Method to print sorted list"""
+        '''Method prints sorted list.'''
         print(sorted(self))
