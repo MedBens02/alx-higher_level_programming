@@ -1,0 +1,131 @@
+=========================
+Usage 1-my_list.py
+=========================
+
+Defines an inherited list class MyList.
+
+Usage
+=====
+
+```2-my_list``` implements sorted printing for a list.
+
+import:
+	>>> MyList = __import__('1-my_list').MyList
+
+Empty list:
+	>>> ml = MyList([])
+	>>> ml.print_sorted()
+	[]
+
+Integer list:
+	>>> ml = MyList([5, 9, 2, 7])
+	>>> ml.print_sorted()
+	[2, 5, 7, 9]
+
+Float list:
+	>>> ml = MyList([3.6, 1.8, 6.4, 2.2])
+	>>> ml.print_sorted()
+	[1.8, 2.2, 3.6, 6.4]
+
+String list:
+	>>> ml = MyList(['banana', 'apple', 'orange'])
+	>>> ml.print_sorted()
+	['apple', 'banana', 'orange']
+
+Mixed type list:
+	>>> ml = MyList([3, 1.5, 'apple', 8])
+	>>> ml.print_sorted()
+	[1.5, 3, 8, 'apple']
+
+Empty string:
+	>>> ml = MyList([''])
+	>>> ml.print_sorted()
+	['']
+
+List with None:
+	>>> ml = MyList([None, 6, None, 2])
+	>>> ml.print_sorted()
+	[None, None, 2, 6]
+
+Negative numbers:
+	>>> ml = MyList([-6, 2, -12, 0])
+	>>> ml.print_sorted()
+	[-12, -6, 0, 2]
+
+List with duplicates:
+	>>> ml = MyList([5, 3, 5, 2, 3])
+	>>> ml.print_sorted()
+	[2, 3, 3, 5, 5]
+
+List with negative floats:
+	>>> ml = MyList([-3.8, -1.4, -6.2, -2.5])
+	>>> ml.print_sorted()
+	[-6.2, -3.8, -2.5, -1.4]
+
+Custom object list:
+	>>> class CustomObject:
+	...     def __init__(self, val):
+	...         self.val = val
+	...     def __lt__(self, other):
+	...         return self.val < other.val
+	...
+	>>> ml = MyList([CustomObject(7), CustomObject(3), CustomObject(5)])
+	>>> ml.print_sorted()
+	[3, 5, 7]
+
+Appending elements:
+	>>> ml = MyList()
+	>>> ml.append(2)
+	>>> ml.append(7)
+	>>> ml.append(3)
+	>>> ml.append(5)
+	>>> ml.append(9)
+	>>> ml.print_sorted()
+	[2, 3, 5, 7, 9]
+
+Handling undefined objects:
+	>>> MyList = __import__('1-my_list').MyList
+	>>> my_list2.print_sorted()
+	Traceback (most recent call last):
+	  File "<stdin>", line 1, in <module>
+	NameError: name 'my_list2' is not defined
+
+Passing a list to the constructor:
+	>>> a = [8, 4, 7]
+	>>> my_list = MyList(a)
+	>>> my_list.print_sorted()
+	[4, 7, 8]
+
+one number:
+	>>> my_list = MyList()
+	>>> my_list.append(1)
+	>>> my_list.print_sorted()
+	[1]
+
+Same number:
+	>>> my_list2 = MyList()
+	>>> my_list2.append(2)
+	>>> my_list2.append(2)
+	>>> my_list2.append(2)
+	>>> my_list2.append(2)
+	>>> my_list2.print_sorted()
+	[2, 2, 2, 2]
+
+Parent object:
+	>>> my_list = [1, 2, 3]
+	>>> my_list.print_sorted()
+	Traceback (most recent call last):
+	  File "<stdin>", line 1, in <module>
+	AttributeError: 'list' object has no attribute 'print_sorted'
+
+Negative numbers:
+	>>> MyList = __import__('1-my_list').MyList
+	>>> my_list = MyList()
+	>>> my_list.append(8)
+	>>> my_list.append(3)
+	>>> my_list.append(-3)
+	>>> my_list.append(61)
+	>>> my_list.append(-7)
+	>>> my_list.print_sorted()
+	[-7, -3, 3, 8, 61]
+
