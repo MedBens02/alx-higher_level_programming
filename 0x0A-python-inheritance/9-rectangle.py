@@ -17,7 +17,6 @@ class Rectangle(BG):
         self.__width = width
         self.__height = height
 
-
     def area(self):
         '''Returns the area of rectangle'''
         return self.__width * self.__height
