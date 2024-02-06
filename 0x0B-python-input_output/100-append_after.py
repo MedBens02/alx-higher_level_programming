@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''Defines a search & write fct'''
 
+
 def append_after(filename="", search_string="", new_string=""):
     """Write a text after a certain str.
 
