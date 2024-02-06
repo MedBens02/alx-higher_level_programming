@@ -19,10 +19,10 @@ class Rectangle(BG):
 
 
      def area(self):
-         '''Returns the area of rectangle'''
-         return self.__width * self.__height
+        '''Returns the area of rectangle'''
+        return self.__width * self.__height
 
      def __str__(self):
-         '''Representation method.'''
-         pstr = "[Rectangle] " + str(self.__width) + "/" + str(self.__height)
-         return pstr
+        '''Representation method.'''
+        pstr = "[Rectangle] " + str(self.__width) + "/" + str(self.__height)
+        return pstr
