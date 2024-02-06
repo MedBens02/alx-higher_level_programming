@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 '''Defines a deserialization fct'''
+import json
 
 
 def from_json_string(my_str):
