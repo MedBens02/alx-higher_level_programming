@@ -81,6 +81,7 @@ class Base:
         filename = cls.__name__ + ".json"
         try:
             with open(filename, "r", encoding="utf-8") as f:
-                return [cls.create(**dic) for dic in cls.from_json_string(f.read())]
+                return [cls.create(**dic)
+                        for dic in cls.from_json_string(f.read())]
         except FileNotFoundError:
             return []
