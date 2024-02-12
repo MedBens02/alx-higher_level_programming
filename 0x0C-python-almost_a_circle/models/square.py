@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''Defines a Square child class'''
-from models.rectangle import Rectanglei
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
