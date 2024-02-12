@@ -82,8 +82,10 @@ class Rectangle(Base):
 
     def display(self):
         """Prints a representation of rect using '#'"""
+        [print("") for y in range(self.y)]
+
         for _ in range(self.__height):
-            print('#' * self.__width)
+            print(' ' * self.x + '#' * self.width)
 
     def __str__(self):
         """Overrides the str representation of rectangle"""
