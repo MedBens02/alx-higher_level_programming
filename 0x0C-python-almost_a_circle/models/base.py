@@ -39,12 +39,11 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """Saves the JSON serialization of a list of objs to a file"""
-        if list_objs is None:
-            string = "[]"
-
         filename = cls.__name__ + ".json"
-        with open(filename, "w", encoding="utf-8") as file:
-            if list_obj is not None:
+        with open(filename, "w", encoding="utf-8") as file:  
+            if list_objs is None:
+                jsonfile.write("[]")
+            else:
                 for obj in list_objs:
-                    string = cls.to_json_string([obj.to_dictionary()])
-            file.write(string)
+                    dicts = [obj.to_dictionary()]
+                jsonfile.write(cls.to_json_string(dicts))
