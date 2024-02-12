@@ -51,7 +51,7 @@ class Rectangle(Base):
         self.__height = value
 
     @property
-    def x(self, value):
+    def x(self):
         """access the x coor of the new rect."""
         return self.__x
 
@@ -64,7 +64,7 @@ class Rectangle(Base):
         self.__x = value
 
     @property
-    def y(self, value):
+    def y(self):
         """access the y coor of the new rect."""
         return self.__y
 
