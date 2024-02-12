@@ -2,7 +2,7 @@
 '''Defines a Base class'''
 import json
 import csv
-import turte
+import turtle
 
 
 class Base:
