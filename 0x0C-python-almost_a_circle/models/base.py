@@ -3,6 +3,7 @@
 import json
 import csv
 
+
 class Base:
     """This is the base of the upvoming classes.
 
@@ -94,7 +95,7 @@ class Base:
         if list_objs is not None:
             if cls.__name__ == "Rectangle":
                 list_objs = [[obj.id, obj.width, obj.height, obj.x, obj.y]
-                        for obj in list_objs]
+                             for obj in list_objs]
             elif cls.__name__ == "Square":
                 list_objs = [[obj.id, obj.size, obj.x, obj.y]
                              for obj in list_objs]
@@ -120,10 +121,10 @@ class Base:
                     row = [int(i) for i in row]
                     if cls.__name__ == "Rectangle":
                         dic = {'id': row[0], 'width': row[1], 'height': row[2],
-                         'x': row[3], 'y': row[4]}
+                               'x': row[3], 'y': row[4]}
                     elif cls.__name__ == "Square":
                         dic = {'id': row[0], 'size': row[1],
-                                'x': row[2], 'y': row[2]}
+                               'x': row[2], 'y': row[2]}
                     inst.append(cls.create(**dic))
             return inst
         except FileNotFoundError:
