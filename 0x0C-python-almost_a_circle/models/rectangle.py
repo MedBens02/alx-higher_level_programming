@@ -84,3 +84,8 @@ class Rectangle(Base):
         """Prints a representation of rect using '#'"""
         for _ in range(self.__height):
             print('#' * self.__width)
+
+    def __str__(self):
+        """Overrides the str representation of rectangle"""
+        return "[Rectangle] ({}) {}/{}".format(
+                self.id, self.x, self.y, self.width, self.height)
