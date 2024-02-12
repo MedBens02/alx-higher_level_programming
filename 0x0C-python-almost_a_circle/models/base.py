@@ -120,3 +120,5 @@ class Base:
                                 'x': row[2], 'y': row[2]}
                     inst.append(cls.create(**d))
             return inst
+        except FileNotFoundError:
+            return []
