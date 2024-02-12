@@ -98,8 +98,13 @@ class Base:
             elif cls.__name__ == "Square":
                 list_objs = [[obj.id, obj.size, obj.x, obj.y]
                              for obj in list_objs]
+            else:
+                list_objs = []
 
-        with open(filename, "w", newline="") as f:
+        else:
+            list_objs = []
+
+        with open(filename, "w", newline="", encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerows(list_objs)
 
@@ -108,17 +113,18 @@ class Base:
         """Deserialize instances from CSV file"""
         filename = cls.__name__ + ".csv"
         try:
-            with open(filename, "r", newline="") as f:
+            with open(filename, "r", newline="", encoding='utf-8') as f:
                 inst = []
                 reader = csv.reader(f)
                 for row in reader:
+                    row = [int(i) for i in row]
                     if cls.__name__ == "Rectangle":
                         dic = {'id': row[0], 'width': row[1], 'height': row[2],
                          'x': row[3], 'y': row[4]}
                     elif cls.__name__ == "Square":
                         dic = {'id': row[0], 'size': row[1],
                                 'x': row[2], 'y': row[2]}
-                    inst.append(cls.create(**d))
+                    inst.append(cls.create(**dic))
             return inst
         except FileNotFoundError:
             return []
