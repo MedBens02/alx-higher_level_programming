@@ -46,3 +46,15 @@ class Base:
             else:
                 dicts = [obj.to_dictionary() for obj in list_objs]
                 f.write(cls.to_json_string(dicts))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Deserialization of a JSON str
+
+        Args:
+            json_string: the JSON str
+        """
+        if json_string is None or json_string == "":
+            return []
+        else:
+            return json.loads(json_string)
