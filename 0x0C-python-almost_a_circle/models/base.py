@@ -96,12 +96,12 @@ class Base:
                 list_objs = [[obj.id, obj.width, obj.height, obj.x, obj.y]
                         for obj in list_objs]
             elif cls.__name__ == "Square":
-                list_objs = [[o.id, o.size, o.x, o.y]
-                             for o in list_objs]
+                list_objs = [[obj.id, obj.size, obj.x, obj.y]
+                             for obj in list_objs]
 
-            with open(filename, "w", newline="") as f:
-                writer = csv.writer(f)
-                writer.writerows(list_objs)
+        with open(filename, "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerows(list_objs)
 
     @classmethod
     def load_from_file_csv(cls):
