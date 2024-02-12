@@ -91,3 +91,26 @@ class Rectangle(Base):
         """Overrides the str representation of rectangle"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
                 self.id, self.x, self.y, self.width, self.height)
+
+    def __updateDetail(self, id=None, width=None, height=None, x=None, y=None):
+        '''Updates a rect using *args or **kwargs'''
+        if id is not None:
+            self.id = id
+        if width is not None:
+            self.width = width
+        if height is not None:
+            self.height = height
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
+
+    def update(self, *args):
+        """Updates a rectangle
+
+        Args:
+            *args: the update values in order:
+                id / width / height / x / y
+        """
+        if args:
+            self.__updateDetail(*args)
