@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''Defines a Base class'''
 import json
-
+import csv
 
 class Base:
     """This is the base of the upvoming classes.
@@ -85,3 +85,38 @@ class Base:
                         for dic in cls.from_json_string(f.read())]
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serialize instances to CSV and saves it in a file"""
+        filename = cls.__name__ + ".csv"
+
+        if list_objs is not None:
+            if cls.__name__ == "Rectangle":
+                list_objs = [[obj.id, obj.width, obj.height, obj.x, obj.y]
+                        for obj in list_objs]
+            elif cls.__name__ == "Square":
+                list_objs = [[o.id, o.size, o.x, o.y]
+                             for o in list_objs]
+
+            with open(filename, "w", newline="") as f:
+                writer = csv.writer(f)
+                writer.writerows(list_objs)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserialize instances from CSV file"""
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, "r", newline="") as f:
+                inst = []
+                reader = csv.reader(f)
+                for row in reader:
+                    if cls.__name__ == "Rectangle":
+                        dic = {'id': row[0], 'width': row[1], 'height': row[2],
+                         'x': row[3], 'y': row[4]}
+                    elif cls.__name__ == "Square":
+                        dic = {'id': row[0], 'size': row[1],
+                                'x': row[2], 'y': row[2]}
+                    inst.append(cls.create(**d))
+            return inst
