@@ -40,7 +40,7 @@ class Base:
     def save_to_file(cls, list_objs):
         """Saves the JSON serialization of a list of objs to a file"""
         if list_objs is None:
-            string = []
+            string = "[]"
 
         filename = cls.__name__ + ".json"
         with open(filename, "w", encoding="utf-8") as file:
