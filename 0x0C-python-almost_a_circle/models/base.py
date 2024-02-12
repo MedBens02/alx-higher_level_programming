@@ -2,6 +2,7 @@
 '''Defines a Base class'''
 import json
 import csv
+import turte
 
 
 class Base:
@@ -124,7 +125,7 @@ class Base:
                                'x': row[3], 'y': row[4]}
                     elif cls.__name__ == "Square":
                         dic = {'id': row[0], 'size': row[1],
-                               'x': row[2], 'y': row[2]}
+                               'x': row[2], 'y': row[3]}
                     inst.append(cls.create(**dic))
             return inst
         except FileNotFoundError:
