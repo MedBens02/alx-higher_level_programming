@@ -105,12 +105,15 @@ class Rectangle(Base):
         if y is not None:
             self.y = y
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Updates a rectangle
 
         Args:
             *args: the update values in order:
                 id / width / height / x / y
+            **kwargs: a dict (key/value) of the attrs
         """
         if args:
             self.__updateDetail(*args)
+        elif kwargs:
+            self.__updateDetail(**kwargs)
