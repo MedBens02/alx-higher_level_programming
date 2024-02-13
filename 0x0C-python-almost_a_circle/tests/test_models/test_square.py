@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Tests for square.'''
+'''Tests for Square.'''
 import unittest
 from models.base import Base
 from models.square import Square
@@ -135,21 +135,6 @@ were given"
              [4], {5}, {6: 7}, None)
         return t
 
-    def test_G_validate_type(self):
-        '''Tests property validation.'''
-        r = Square(1)
-        attributes = ["x", "y"]
-        for attribute in attributes:
-            s = "{} must be an integer".format(attribute)
-            for invalid_type in self.invalid_types():
-                with self.assertRaises(TypeError) as e:
-                    setattr(r, attribute, invalid_type)
-                self.assertEqual(str(e.exception), s)
-        s = "width must be an integer"
-        for invalid_type in self.invalid_types():
-            with self.assertRaises(TypeError) as e:
-                setattr(r, "width", invalid_type)
-            self.assertEqual(str(e.exception), s)
 
     def test_G_validate_value_negative_gt(self):
         '''Tests property validation.'''

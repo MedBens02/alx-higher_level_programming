@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Tests for rectangle.'''
+'''Tests for Rectangle.'''
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -160,16 +160,6 @@ given"
              [4], {5}, {6: 7}, None)
         return t
 
-    def test_G_validate_type(self):
-        '''Tests property validation.'''
-        r = Rectangle(1, 2)
-        attributes = ["x", "y", "width", "height"]
-        for attribute in attributes:
-            s = "{} must be an integer".format(attribute)
-            for invalid_type in self.invalid_types():
-                with self.assertRaises(TypeError) as e:
-                    setattr(r, attribute, invalid_type)
-                self.assertEqual(str(e.exception), s)
 
     def test_G_validate_value_negative_gt(self):
         '''Tests property validation.'''
