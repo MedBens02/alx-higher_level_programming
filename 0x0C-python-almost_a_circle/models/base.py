@@ -143,23 +143,19 @@ class Base:
             t.up()
             t.goto(rect.x, rect.y)
             t.down()
-            t.begin_fill()
             for i in range(2):
                 t.forward(rect.width)
                 t.left(90)
                 t.forward(rect.height)
                 t.left(90)
-            t.end_fill()
 
         t.color("#40E235")
         for square in list_squares:
             t.up()
-            t.goto(rect.x, rect.y)
+            t.goto(square.x, square.y)
             t.down()
-            t.begin_fill()
             for i in range(4):
-                t.forward(square.size)
+                t.forward(square.height)
                 t.left(90)
-            t.end_fill()
 
-        t.done()
+        turtle.done()
