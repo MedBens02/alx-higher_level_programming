@@ -13,7 +13,8 @@ if __name__ == "__main__":
         port=3306
     )
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%'")
+    cur.execute("""SELECT * FROM states
+                WHERE name LIKE 'N%'""")
     results = cur.fetchall()
     for r in results:
         print(r)
