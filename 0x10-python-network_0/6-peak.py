@@ -16,11 +16,11 @@ def find_peak(list_of_integers):
     if r == 2:
         return max(list_of_integers)
 
-    if list_of_integers[m] >= list_of_integers[m + 1] and\
-            list_of_integers[m] >= list_of_integers[m - 1]:
+    if list_of_integers[m] > list_of_integers[m + 1] and\
+            list_of_integers[m] > list_of_integers[m - 1]:
         return list_of_integers[m]
 
-    if m > 0 and list_of_integers[m] < list_of_integers[m + 1]:
+    if m > 0 and list_of_integers[m] <= list_of_integers[m + 1]:
         return find_peak(list_of_integers[m:])
-    if m > 0 and list_of_integers[m] < list_of_integers[m - 1]:
+    if m > 0 and list_of_integers[m] <= list_of_integers[m - 1]:
         return find_peak(list_of_integers[:m])
